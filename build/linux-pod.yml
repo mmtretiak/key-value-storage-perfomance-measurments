@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kv-test
+  namespace: development
+spec:
+  containers:
+  - name: kv-test
+    image: 536172818835.dkr.ecr.us-east-2.amazonaws.com/kv-test:latest
+    env:
+      - name: OPERATIONS_COUNT
+        value: "10000"
+      - name: RATE_LIMIT
+        value: "10000"
+      - name: CLIENT_COUNT
+        value: "1"
+      - name: VALUE_LENGTH
+        value: "5000"
+  imagePullSecrets:
+    - name: aws-ecr-pull-creds

@@ -1,0 +1,19 @@
+usePassword: false
+
+redis:
+  resources:
+    requests:
+      cpu: 1
+      memory: 1Gi
+    limits:
+      cpu: 2
+      memory: 8Gi
+  topologySpreadConstraints:
+    - topologyKey: kubernetes.io/hostname
+      maxSkew: 1
+      minDomains: 3
+      whenUnsatisfiable: DoNotSchedule
+
+cluster:
+  nodes: 3
+  replica: 0

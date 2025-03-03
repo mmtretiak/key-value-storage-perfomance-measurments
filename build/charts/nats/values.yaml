@@ -1,0 +1,21 @@
+config:
+  cluster:
+    enabled: true
+    replicas: 3
+  jetstream:
+    enabled: true
+    fileStore:
+      maxSize: 4Gi
+    memoryStore:
+      enabled: true
+      maxSize: 2Gi
+
+container:
+  merge:
+    resources:
+      requests:
+        cpu: 1
+        memory: 1Gi
+      limits:
+        cpu: 2
+        memory: 8Gi
